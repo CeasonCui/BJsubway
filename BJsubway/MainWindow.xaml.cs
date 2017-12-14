@@ -893,6 +893,7 @@ namespace BJsubway
                 if(start.Text== (sts_all[i] as Station).name)
                 {
                     Circle((sts_all[i] as Station).x, (sts_all[i] as Station).y, true);
+
                 }
             }
             Point p = e.GetPosition((IInputElement)sender);

@@ -24,6 +24,7 @@ namespace BJsubway
     {
         int sts_master = 0;
         int change = 0;
+        int last_next_len = 0;
         ArrayList lines_all
         {
             get;
@@ -139,6 +140,8 @@ namespace BJsubway
                     laststation.Visibility = System.Windows.Visibility.Visible;//显示
                     nextstana.Visibility = System.Windows.Visibility.Visible;//显示
                     nextstation.Visibility = System.Windows.Visibility.Visible;//显示
+                    nextdisnum.Visibility = System.Windows.Visibility.Visible;//显示
+                    nextdis.Visibility = System.Windows.Visibility.Visible;//显示
                     linebox1.Visibility = System.Windows.Visibility.Visible;//显示
                     line_master.Visibility = System.Windows.Visibility.Visible;//显示
                     x_num.Visibility = System.Windows.Visibility.Visible;//显示
@@ -179,6 +182,8 @@ namespace BJsubway
                 laststation.Visibility = System.Windows.Visibility.Collapsed;//隐藏
                 nextstana.Visibility = System.Windows.Visibility.Collapsed;//隐藏
                 nextstation.Visibility = System.Windows.Visibility.Collapsed;//隐藏
+                nextdisnum.Visibility = System.Windows.Visibility.Collapsed;//隐藏
+                nextdis.Visibility = System.Windows.Visibility.Collapsed;//隐藏
                 linebox1.Visibility = System.Windows.Visibility.Collapsed;//隐藏
                 line_master.Visibility = System.Windows.Visibility.Collapsed;//隐藏
                 x_num.Visibility = System.Windows.Visibility.Collapsed;//隐藏
@@ -196,7 +201,7 @@ namespace BJsubway
         private void SelectLine_1(object sender, SelectionChangedEventArgs e)
         {
             try { this.nextstana.Items.Clear(); } catch { }
-           
+
             string select = linebox1.SelectedValue.ToString().Replace("System.Windows.Controls.ComboBoxItem: ", "");
             if (select == "1号线")
             {
@@ -256,7 +261,7 @@ namespace BJsubway
             owner.lines_all = lines_all;
             owner.mainPanel.Children.Clear();
             owner.Print(lines_all, sts_all);
-            Close();
+            //Close();
 
         }
 
@@ -266,6 +271,18 @@ namespace BJsubway
             {
 
                 string a = lastdisnum.Text;
+                string b = nextdisnum.Text;
+                if (a == "")
+                {
+                    MessageBox.Show("请输入距离");
+                    return;
+
+                }
+                if ((x_num.Text == "")|| (y_num.Text == ""))
+                {
+                    MessageBox.Show("请输入坐标值");
+                    return;
+                }
                 for (int i = 0; i <= sts_all.Count; i++)
                 {
                     if (i == sts_all.Count)
@@ -283,49 +300,44 @@ namespace BJsubway
                         break;
                     }
                 }
-                    for (int j = 0; j < lines_all.Count; j++)
+                for (int j = 0; j < lines_all.Count; j++)
                 {
                     if ((sts_all[(lines_all[j] as SubwayLine).start] as Station).name == laststana.Text && (sts_all[(lines_all[j] as SubwayLine).end] as Station).name == nextstana.Text)
                     {
-                        if (Convert.ToInt32(a) < (lines_all[j] as SubwayLine).length)
+                        int sts_x, sts_y;
+                        sts_x = Convert.ToInt32(x_num.Text);
+                        sts_y = Convert.ToInt32(y_num.Text);
+                        for (int i = 0; i <= sts_all.Count; i++)
                         {
-                            int sts_x, sts_y;
-                            sts_x = Convert.ToInt32(x_num.Text);
-                            sts_y = Convert.ToInt32(y_num.Text);
-                            for (int i = 0; i <= sts_all.Count; i++)
+                            if (i == sts_all.Count)
                             {
-                                if (i == sts_all.Count)
-                                {
-                                    sts_all.Add(new Station(stana.Text, sts_all.Count, sts_x, sts_y, 1));
+                                sts_all.Add(new Station(stana.Text, sts_all.Count, sts_x, sts_y, 1));
 
-                                    (sts_all[sts_all.Count - 1] as Station).Insert_last(sts_master);
-                                    lines_all.Add(new SubwayLine(((sts_all[(lines_all[j] as SubwayLine).start] as Station).index), (sts_all.Count - 1), Convert.ToInt32(a)));
-                                    (lines_all[lines_all.Count - 1] as SubwayLine).master = sts_master;
-                                    lines_all.Add(new SubwayLine((sts_all.Count - 1), ((sts_all[(lines_all[j] as SubwayLine).start] as Station).index), Convert.ToInt32(a)));
-                                    (lines_all[lines_all.Count - 1] as SubwayLine).master = sts_master;
-                                    lines_all.Add(new SubwayLine(((sts_all[(lines_all[j] as SubwayLine).end] as Station).index), (sts_all.Count - 1), ((lines_all[j] as SubwayLine).length - Convert.ToInt32(a))));
-                                    (lines_all[lines_all.Count - 1] as SubwayLine).master = sts_master;
-                                    lines_all.Add(new SubwayLine((sts_all.Count - 1), ((sts_all[(lines_all[j] as SubwayLine).end] as Station).index), ((lines_all[j] as SubwayLine).length - Convert.ToInt32(a))));
-                                    (lines_all[lines_all.Count - 1] as SubwayLine).master = sts_master;
-                                    lines_all.RemoveAt(j);
-                                    break;
-                                }
-                                else if ((sts_all[i] as Station).name == stana.Text)
-                                {
-                                    (sts_all[i] as Station).Insert_last(sts_master);
-                                    lines_all.Add(new SubwayLine(((sts_all[(lines_all[j] as SubwayLine).start] as Station).index), (sts_all[i] as Station).index, Convert.ToInt32(a)));
-                                    (lines_all[lines_all.Count - 1] as SubwayLine).master = sts_master;
-                                    lines_all.Add(new SubwayLine((sts_all[i] as Station).index, ((sts_all[(lines_all[j] as SubwayLine).start] as Station).index), Convert.ToInt32(a)));
-                                    (lines_all[lines_all.Count - 1] as SubwayLine).master = sts_master;
-                                    lines_all.Add(new SubwayLine(((sts_all[(lines_all[j] as SubwayLine).end] as Station).index), (sts_all[i] as Station).index, ((lines_all[j] as SubwayLine).length - Convert.ToInt32(a))));
-                                    (lines_all[lines_all.Count - 1] as SubwayLine).master = sts_master;
-                                    lines_all.Add(new SubwayLine((sts_all[i] as Station).index, ((sts_all[(lines_all[j] as SubwayLine).end] as Station).index), ((lines_all[j] as SubwayLine).length - Convert.ToInt32(a))));
-                                    (lines_all[lines_all.Count - 1] as SubwayLine).master = sts_master;
-                                    lines_all.RemoveAt(j);
-                                    break;
-
-                                }
-                                
+                                (sts_all[sts_all.Count - 1] as Station).Insert_last(sts_master);
+                                lines_all.Add(new SubwayLine(((sts_all[(lines_all[j] as SubwayLine).start] as Station).index), (sts_all.Count - 1), Convert.ToInt32(a)));
+                                (lines_all[lines_all.Count - 1] as SubwayLine).master = sts_master;
+                                lines_all.Add(new SubwayLine((sts_all.Count - 1), ((sts_all[(lines_all[j] as SubwayLine).start] as Station).index), Convert.ToInt32(a)));
+                                (lines_all[lines_all.Count - 1] as SubwayLine).master = sts_master;
+                                lines_all.Add(new SubwayLine(((sts_all[(lines_all[j] as SubwayLine).end] as Station).index), (sts_all.Count - 1), Convert.ToInt32(b)));
+                                (lines_all[lines_all.Count - 1] as SubwayLine).master = sts_master;
+                                lines_all.Add(new SubwayLine((sts_all.Count - 1), ((sts_all[(lines_all[j] as SubwayLine).end] as Station).index), Convert.ToInt32(b)));
+                                (lines_all[lines_all.Count - 1] as SubwayLine).master = sts_master;
+                                lines_all.RemoveAt(j);
+                                break;
+                            }
+                            else if ((sts_all[i] as Station).name == stana.Text)
+                            {
+                                (sts_all[i] as Station).Insert_last(sts_master);
+                                lines_all.Add(new SubwayLine(((sts_all[(lines_all[j] as SubwayLine).start] as Station).index), (sts_all[i] as Station).index, Convert.ToInt32(a)));
+                                (lines_all[lines_all.Count - 1] as SubwayLine).master = sts_master;
+                                lines_all.Add(new SubwayLine((sts_all[i] as Station).index, ((sts_all[(lines_all[j] as SubwayLine).start] as Station).index), Convert.ToInt32(a)));
+                                (lines_all[lines_all.Count - 1] as SubwayLine).master = sts_master;
+                                lines_all.Add(new SubwayLine(((sts_all[(lines_all[j] as SubwayLine).end] as Station).index), (sts_all[i] as Station).index, Convert.ToInt32(b)));
+                                (lines_all[lines_all.Count - 1] as SubwayLine).master = sts_master;
+                                lines_all.Add(new SubwayLine((sts_all[i] as Station).index, ((sts_all[(lines_all[j] as SubwayLine).end] as Station).index), Convert.ToInt32(b)));
+                                (lines_all[lines_all.Count - 1] as SubwayLine).master = sts_master;
+                                lines_all.RemoveAt(j);
+                                break;
                             }
                         }
                     }
@@ -433,31 +445,7 @@ namespace BJsubway
                 {
                     for(int m=0;m< (sts_all[i] as Station).mas.Count; m++)
                     {
-                        if((int)(sts_all[i] as Station).mas[m] == 1)
-                        {
-                            linebox1.Items.Add("1号线");
-                        }
-                        if ((int)(sts_all[i] as Station).mas[m] == 2)
-                        {
-                            linebox1.Items.Add("2号线");
-                        }
-                        if ((int)(sts_all[i] as Station).mas[m] == 5)
-                        {
-                            linebox1.Items.Add("5号线");
-                        }
-                        if ((int)(sts_all[i] as Station).mas[m] == 6)
-                        {
-                            linebox1.Items.Add("6号线");
-                        }
-                        if ((int)(sts_all[i] as Station).mas[m] == 1)
-                        {
-                            linebox1.Items.Add("1号线");
-                        }
-                        if ((int)(sts_all[i] as Station).mas[m] == 10)
-                        {
-                            linebox1.Items.Add("10号线");
-                        }
-
+                            linebox1.Items.Add((sts_all[i] as Station).mas[m]+"号线");
                     }
                     break;
                 }

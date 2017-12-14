@@ -15,24 +15,26 @@
                 删除站点
             </ComboBoxItem>
         </ComboBox>
-        <TextBox x:Name="stana" HorizontalAlignment="Left" Height="23" Margin="206,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="stana_taxtchanged" Foreground="#FF232780" FontSize="13.333" Background="WhiteSmoke"/>
-        <TextBox x:Name="laststana" HorizontalAlignment="Left" Height="23" Margin="206,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextChange" Foreground="#FF232780" FontSize="13.333" Background="WhiteSmoke"/>
-        <TextBox x:Name="lastdisnum" HorizontalAlignment="Left" Height="23" Margin="206,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="#FF232780" FontSize="13.333" Background="WhiteSmoke"/>
+        <TextBox x:Name="stana" HorizontalAlignment="Left" Height="23" Margin="192,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="stana_taxtchanged" Foreground="#FF232780" FontSize="13.333" Background="WhiteSmoke"/>
+        <TextBox x:Name="laststana" HorizontalAlignment="Left" Height="23" Margin="192,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextChange" Foreground="#FF232780" FontSize="13.333" Background="WhiteSmoke"/>
+        <TextBox x:Name="lastdisnum" HorizontalAlignment="Left" Height="23" Margin="192,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="#FF232780" FontSize="13.333" Background="WhiteSmoke"/>
         <Label x:Name="laststation" Content="上一站" HorizontalAlignment="Left" Margin="136,81,0,0" VerticalAlignment="Top" Foreground="#FF10A3D0" FontWeight="Bold" FontSize="13.333" RenderTransformOrigin="0.507,0.449"/>
-        <Label x:Name="nextstation" Content="下一站" HorizontalAlignment="Left" Margin="405,82,0,0" VerticalAlignment="Top" Foreground="#FF10A3D0" FontWeight="Bold" FontSize="13.333"/>
+        <Label x:Name="nextstation" Content="下一站" HorizontalAlignment="Left" Margin="379,81,0,0" VerticalAlignment="Top" Foreground="#FF10A3D0" FontWeight="Bold" FontSize="13.333"/>
         <Label x:Name="lastdis" Content="距离上一站的距离" HorizontalAlignment="Left" Margin="69,180,0,0" VerticalAlignment="Top" Foreground="#FF10A3D0" FontWeight="Bold" FontSize="13.333"/>
         <Button x:Name="confirm" Content="确定" HorizontalAlignment="Left" Margin="216,290,0,0" VerticalAlignment="Top" Width="90" Height="33" Click="confirm_Click" FontSize="13.333" Foreground="#FF232780" FontWeight="Bold"/>
         <Button x:Name="clear" Content="清除" HorizontalAlignment="Left" Margin="405,290,0,0" VerticalAlignment="Top" Width="90" Height="33" Click="clear_Click" Foreground="#FF232780" FontWeight="Bold" FontSize="13.333"/>
         <Button x:Name="clear_Copy" Content="完成" HorizontalAlignment="Left" Margin="661,290,0,0" VerticalAlignment="Top" Width="90" Height="33" Click="clear_Click" Foreground="#FF232780" FontWeight="Bold" FontSize="13.333"/>
-        <ComboBox x:Name="nextstana" HorizontalAlignment="Left" Margin="474,86,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0" Foreground="#FF232780" FontSize="13.333"/>
+        <ComboBox x:Name="nextstana" HorizontalAlignment="Left" Margin="434,86,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0" Foreground="#FF232780" FontSize="13.333"/>
         <Label x:Name="line_master" Content="归属线路" HorizontalAlignment="Left" Margin="122,127,0,0" VerticalAlignment="Top" Foreground="#FF10A3D0" FontWeight="Bold" FontSize="13.333"/>
-        <ComboBox x:Name="linebox1" HorizontalAlignment="Left" Margin="207,132,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0" SelectionChanged="SelectLine_1" Foreground="#FF232780" FontSize="13.333">
+        <ComboBox x:Name="linebox1" HorizontalAlignment="Left" Margin="193,132,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0" SelectionChanged="SelectLine_1" Foreground="#FF232780" FontSize="13.333">
 
         </ComboBox>
-        <Label x:Name="sts_x" Content="横坐标值" HorizontalAlignment="Left" Margin="122,228,0,0" VerticalAlignment="Top" Foreground="#FF10A3D0" FontWeight="Bold" FontSize="13.333"/>
-        <TextBox x:Name="x_num" HorizontalAlignment="Left" Height="23" Margin="207,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="#FF232780" FontSize="13.333" Background="WhiteSmoke"/>
-        <Label x:Name="sts_y" Content="纵坐标值" HorizontalAlignment="Left" Margin="380,228,0,0" VerticalAlignment="Top" Foreground="#FF10A3D0" FontWeight="Bold" FontSize="13.333"/>
-        <TextBox x:Name="y_num" HorizontalAlignment="Left" Height="23" Margin="449,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="#FF232780" FontSize="13.333" Background="WhiteSmoke"/>
-        <Label x:Name="warn_label" Content="" HorizontalAlignment="Left" Margin="343,39,0,0" VerticalAlignment="Top" Foreground="Red"/>
+        <Label x:Name="sts_x" Content="横坐标值" HorizontalAlignment="Left" Margin="365,184,0,0" VerticalAlignment="Top" Foreground="#FF10A3D0" FontWeight="Bold" FontSize="13.333"/>
+        <TextBox x:Name="x_num" HorizontalAlignment="Left" Height="23" Margin="434,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="#FF232780" FontSize="13.333" Background="WhiteSmoke"/>
+        <Label x:Name="sts_y" Content="纵坐标值" HorizontalAlignment="Left" Margin="365,234,0,0" VerticalAlignment="Top" Foreground="#FF10A3D0" FontWeight="Bold" FontSize="13.333"/>
+        <TextBox x:Name="y_num" HorizontalAlignment="Left" Height="23" Margin="434,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="#FF232780" FontSize="13.333" Background="WhiteSmoke"/>
+        <Label x:Name="warn_label" Content="" HorizontalAlignment="Left" Margin="329,39,0,0" VerticalAlignment="Top" Foreground="Red"/>
+        <TextBox x:Name="nextdisnum" HorizontalAlignment="Left" Height="23" Margin="193,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="#FF232780" FontSize="13.333" Background="WhiteSmoke"/>
+        <Label x:Name="nextdis" Content="距离下一站的距离" HorizontalAlignment="Left" Margin="69,234,0,0" VerticalAlignment="Top" Foreground="#FF10A3D0" FontWeight="Bold" FontSize="13.333"/>
     </Grid>
 </Window>
