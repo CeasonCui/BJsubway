@@ -365,6 +365,12 @@ namespace BJsubway
                     y_num.Clear();
                     return;
                 }
+                if (stana.Text == laststana.Text || stana.Text == nextstana.Text)
+                {
+                    MessageBox.Show("增加站点不能与上/下站的站名重复，请重新输入");
+                    stana.Clear();
+                    return;
+                }
                 for (int j = 0; j < lines_all.Count; j++)
                 {
                     if ((sts_all[(lines_all[j] as SubwayLine).start] as Station).name == laststana.Text && (sts_all[(lines_all[j] as SubwayLine).end] as Station).name == nextstana.Text)
