@@ -47,7 +47,7 @@ namespace BJsubway
         {
             try
             {
-                Decimal Number = Convert.ToDecimal(oText);
+                int Number = Convert.ToInt32(oText);
                 return true;
             }
             catch
@@ -334,14 +334,14 @@ namespace BJsubway
                 }
                 if(IsNumberic(a)==false|| IsNumberic(b) == false)
                 {
-                    MessageBox.Show("距离需输入数字，请重新输入");
+                    MessageBox.Show("距离需输入整数，请重新输入");
                     lastdisnum.Clear();
                     nextdisnum.Clear();
                     return;
                 }
                 if (IsNumberic(x_num.Text) == false || IsNumberic(y_num.Text) == false)
                 {
-                    MessageBox.Show("坐标需输入数字，请重新输入");
+                    MessageBox.Show("坐标需输入整数，请重新输入");
                     lastdisnum.Clear();
                     nextdisnum.Clear();
                     return;
