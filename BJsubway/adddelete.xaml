@@ -23,7 +23,7 @@
         <Label x:Name="lastdis" Content="距离上一站的距离" HorizontalAlignment="Left" Margin="69,180,0,0" VerticalAlignment="Top" Foreground="#FF10A3D0" FontWeight="Bold" FontSize="13.333"/>
         <Button x:Name="confirm" Content="确定" HorizontalAlignment="Left" Margin="216,290,0,0" VerticalAlignment="Top" Width="90" Height="33" Click="confirm_Click" FontSize="13.333" Foreground="#FF232780" FontWeight="Bold"/>
         <Button x:Name="clear" Content="清除" HorizontalAlignment="Left" Margin="405,290,0,0" VerticalAlignment="Top" Width="90" Height="33" Click="clear_Click" Foreground="#FF232780" FontWeight="Bold" FontSize="13.333"/>
-        <Button x:Name="clear_Copy" Content="完成" HorizontalAlignment="Left" Margin="661,290,0,0" VerticalAlignment="Top" Width="90" Height="33" Click="clear_Click" Foreground="#FF232780" FontWeight="Bold" FontSize="13.333"/>
+        <Button x:Name="clear_Copy" Content="完成" HorizontalAlignment="Left" Margin="661,290,0,0" VerticalAlignment="Top" Width="90" Height="33" Click="finish_Click" Foreground="#FF232780" FontWeight="Bold" FontSize="13.333"/>
         <ComboBox x:Name="nextstana" HorizontalAlignment="Left" Margin="434,86,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0" Foreground="#FF232780" FontSize="13.333"/>
         <Label x:Name="line_master" Content="归属线路" HorizontalAlignment="Left" Margin="122,127,0,0" VerticalAlignment="Top" Foreground="#FF10A3D0" FontWeight="Bold" FontSize="13.333"/>
         <ComboBox x:Name="linebox1" HorizontalAlignment="Left" Margin="193,132,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0" SelectionChanged="SelectLine_1" Foreground="#FF232780" FontSize="13.333">

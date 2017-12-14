@@ -24,23 +24,38 @@ namespace BJsubway
     {
         int sts_master = 0;
         int change = 0;
-        int last_next_len = 0;
         ArrayList lines_all
         {
             get;
             set;
         }
+
         ArrayList sts_all
         {
             get;
             set;
         }
+
         public adddelete(ArrayList lines, ArrayList sts)
         {
             InitializeComponent();
             lines_all = lines;
             sts_all = sts;
         }
+
+        public bool IsNumberic(string oText)//判断字符串是否为数字
+        {
+            try
+            {
+                Decimal Number = Convert.ToDecimal(oText);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public static void SaveCSV(ArrayList lines, ArrayList sts, string fullPath1, string fullPath2)
         {
             FileInfo fi1 = new FileInfo(fullPath1);
@@ -249,6 +264,22 @@ namespace BJsubway
             nextstana.SelectedIndex = 0;
         }
 
+        private void finish_Click(object sender, RoutedEventArgs e)
+        {
+            lastdisnum.Clear();
+            laststana.Clear();
+            //nextdisnum.Clear();
+            //nextstana.Text = "";
+            stana.Clear();
+            MainWindow owner = (MainWindow)this.Owner;
+            owner.sts_all = sts_all;
+            owner.lines_all = lines_all;
+            owner.mainPanel.Children.Clear();
+            owner.Print(lines_all, sts_all);
+            Close();
+
+        }
+
         private void clear_Click(object sender, RoutedEventArgs e)
         {
             lastdisnum.Clear();
@@ -290,9 +321,10 @@ namespace BJsubway
                         MessageBox.Show("输入错误，请重新输入");
                         stana.Clear();
                         laststana.Clear();
-                        lastdisnum.Clear();
-                        x_num.Clear();
-                        y_num.Clear();
+                        //lastdisnum.Clear();
+                        //nextdisnum.Clear();
+                        //x_num.Clear();
+                        //y_num.Clear();
                         return;
                     }
                     if(laststana.Text==(sts_all[i] as Station).name)
@@ -300,13 +332,44 @@ namespace BJsubway
                         break;
                     }
                 }
+                if(IsNumberic(a)==false|| IsNumberic(b) == false)
+                {
+                    MessageBox.Show("距离需输入数字，请重新输入");
+                    lastdisnum.Clear();
+                    nextdisnum.Clear();
+                    return;
+                }
+                if (IsNumberic(x_num.Text) == false || IsNumberic(y_num.Text) == false)
+                {
+                    MessageBox.Show("坐标需输入数字，请重新输入");
+                    lastdisnum.Clear();
+                    nextdisnum.Clear();
+                    return;
+                }
+                int aint = Convert.ToInt32(a);
+                int bint = Convert.ToInt32(b);
+                int sts_x, sts_y;
+                sts_x = Convert.ToInt32(x_num.Text);
+                sts_y = Convert.ToInt32(y_num.Text);
+                if (aint<=0|| bint<= 0)
+                {
+                    MessageBox.Show("输入的距离需大于0，请重新输入");
+                    lastdisnum.Clear();
+                    nextdisnum.Clear();
+                    return;
+                }
+                if (sts_x <= 0 || sts_y <= 0)
+                {
+                    MessageBox.Show("输入的坐标值需大于0，请重新输入");
+                    x_num.Clear();
+                    y_num.Clear();
+                    return;
+                }
                 for (int j = 0; j < lines_all.Count; j++)
                 {
                     if ((sts_all[(lines_all[j] as SubwayLine).start] as Station).name == laststana.Text && (sts_all[(lines_all[j] as SubwayLine).end] as Station).name == nextstana.Text)
                     {
-                        int sts_x, sts_y;
-                        sts_x = Convert.ToInt32(x_num.Text);
-                        sts_y = Convert.ToInt32(y_num.Text);
+                        
                         for (int i = 0; i <= sts_all.Count; i++)
                         {
                             if (i == sts_all.Count)

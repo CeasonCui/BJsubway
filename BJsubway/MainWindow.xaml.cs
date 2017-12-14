@@ -508,10 +508,6 @@ namespace BJsubway
                         start.SelectedItem = string.Empty;
                         end.Text = string.Empty;
                         end.SelectedItem = string.Empty;
-                        /*start.Text = "";
-                        start_station = -1;
-                        end.Text = "";
-                        end_station = -1;*/
                         return;
                     }
                     if ((sts_all[i] as Station).name == start.Text)
@@ -529,10 +525,6 @@ namespace BJsubway
                         start.SelectedItem = string.Empty;
                         end.Text = string.Empty;
                         end.SelectedItem = string.Empty;
-                        /*start.Text = "";
-                        start_station = -1;
-                        end.Text = "";
-                        end_station = -1;*/
                         return;
                     }
                     if ((sts_all[i] as Station).name == end.Text)
