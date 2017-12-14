@@ -499,6 +499,16 @@ namespace BJsubway
             
             while (true)
             {
+                if(start.Text == end.Text)
+                {
+                    MessageBox.Show("起点和终点不能为同一站，请重新输入");
+                    start.Text = string.Empty;
+                    start.SelectedItem = string.Empty;
+                    end.Text = string.Empty;
+                    end.SelectedItem = string.Empty;
+                    return;
+
+                }
                 for (int i = 0; i <= sts_all.Count; i++)
                 {
                     if (i == sts_all.Count)

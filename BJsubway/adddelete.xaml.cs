@@ -334,14 +334,14 @@ namespace BJsubway
                 }
                 if(IsNumberic(a)==false|| IsNumberic(b) == false)
                 {
-                    MessageBox.Show("距离需输入整数，请重新输入");
+                    MessageBox.Show("距离需输入正整数，请重新输入");
                     lastdisnum.Clear();
                     nextdisnum.Clear();
                     return;
                 }
                 if (IsNumberic(x_num.Text) == false || IsNumberic(y_num.Text) == false)
                 {
-                    MessageBox.Show("坐标需输入整数，请重新输入");
+                    MessageBox.Show("坐标需输入正整数，请重新输入");
                     lastdisnum.Clear();
                     nextdisnum.Clear();
                     return;
@@ -353,14 +353,14 @@ namespace BJsubway
                 sts_y = Convert.ToInt32(y_num.Text);
                 if (aint<=0|| bint<= 0)
                 {
-                    MessageBox.Show("输入的距离需大于0，请重新输入");
+                    MessageBox.Show("坐标需输入正整数，请重新输入");
                     lastdisnum.Clear();
                     nextdisnum.Clear();
                     return;
                 }
                 if (sts_x <= 0 || sts_y <= 0)
                 {
-                    MessageBox.Show("输入的坐标值需大于0，请重新输入");
+                    MessageBox.Show("坐标需输入正整数，请重新输入");
                     x_num.Clear();
                     y_num.Clear();
                     return;
