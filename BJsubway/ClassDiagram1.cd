@@ -1,38 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="BJsubway.MainWindow" Collapsed="true">
-    <Position X="0.5" Y="1.25" Width="1.5" />
+  <Class Name="BJsubway.MainWindow">
+    <Position X="0.5" Y="0.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>IAAAAEAAEIgACCABAAA0ACAACAgBAAgAAEAAAIAEAAg=</HashCode>
       <FileName>MainWindow.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="BJsubway.Station" Collapsed="true">
-    <Position X="2.75" Y="2" Width="1.5" />
+  <Class Name="BJsubway.Station">
+    <Position X="2.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAQAAEAAAAAAFgAAABAAA=</HashCode>
       <FileName>MainWindow.xaml.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BJsubway.SubwayLine" Collapsed="true">
-    <Position X="4.5" Y="1.25" Width="1.5" />
+  <Class Name="BJsubway.SubwayLine">
+    <Position X="5.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAACAIAAAAAgAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MainWindow.xaml.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BJsubway.VisitItem" Collapsed="true">
-    <Position X="4" Y="3.5" Width="1.5" />
+  <Class Name="BJsubway.VisitItem">
+    <Position X="4.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
       <FileName>MainWindow.xaml.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BJsubway.adddelete" Collapsed="true">
-    <Position X="7" Y="1.5" Width="2" />
+  <Class Name="BJsubway.adddelete">
+    <Position X="7.75" Y="1.25" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAEABGAAAACAAAAAIAAASAAAAAAEgAAAAQAgAAAA=</HashCode>
+      <HashCode>AAAAAEABGAAAACAAAAAIAAASAAAAAAEgAAAAQAgQAAA=</HashCode>
       <FileName>adddelete.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
